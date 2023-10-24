@@ -1,0 +1,71 @@
+table {
+   width: 100%;
+   border: 1px solid #000;
+}
+
+th,
+td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+
+caption {
+   padding: 0.3em;
+   color: #fff;
+   background: #000;
+}
+
+th {
+   background: #eee;
+}
+
+h1 {
+   color: red;
+}
+
+a {
+   text-decoration: none;
+   color: rgb(197, 223, 223);
+   background-color: rgb(49, 48, 48);
+   padding: 10px;
+   
+}
+#btJuegos{
+   display: flex;
+   flex-wrap: wrap; 
+}
+#bt1 {
+   text-decoration: none;
+   color: rgb(197, 223, 223);
+   background-color: rgb(7, 7, 7);
+   padding: 2px;
+   margin: 2px;
+}
+
+#btcrear {
+   text-decoration: none;
+   color: rgb(197, 223, 223);
+   background-color: rgb(117, 13, 236);
+
+}
+
+#atrasCrear {
+   text-decoration: none;
+   color: rgb(197, 223, 223);
+   background-color: rgb(59, 100, 21);
+   
+}
+
+#atrasCrear1 {
+   display: flex;
+   flex-wrap: wrap; 
+   text-decoration: none;
+   color: rgb(197, 223, 223);
+   background-color: rgb(100, 21, 60);
+   width: 35px;
+}
