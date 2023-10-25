@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <h1>Compras</h1>
+        <h1>Compras1</h1>
     </header>
     <main>
         <div id=btJuegos>
@@ -35,25 +35,25 @@
             <tbody>
 
                 <?php
-                
-                    foreach ($auxList as $key => $tipo) {
-                        //RECORRO LA LISTA AUXILIAR DONDE TENGO LOS VALORES DEL NOMBRE DEL CLIENTE Y EL DEL JUEGO
-                        echo '<tr>';
-                        echo '<td>' . $tipo['nombre'] . '</td>';
-                        echo '<td>' . $tipo['juego'] . '</td>';
-                        echo '<td>' . $tipo['precio'] . '</td>';
-                        echo '<td>' . $tipo['cantidad'] . '</td>';
-                        echo '<td>' . $tipo['fecha'] . '</td>';
-                        echo '<td>' . $tipo['precio']*$tipo['cantidad'] . '</td>';
-                        echo '<td>
+                foreach ($auxList as $key => $tipo) {
+                    //var_dump($auxList);
+                    //RECORRO LA LISTA AUXILIAR DONDE TENGO LOS VALORES DEL NOMBRE DEL CLIENTE Y EL DEL JUEGO
+                    echo '<tr>';
+                    echo '<td>' . $tipo['nombre'] . '</td>';
+                    echo '<td>' . $tipo['juego'] . '</td>';
+                    echo '<td>' . $tipo['precio'] . '</td>';
+                    echo '<td>' . $tipo['cantidad'] . '</td>';
+                    echo '<td>' . $tipo['fecha'] . '</td>';
+                    echo '<td>' . $tipo['precio'] * $tipo['cantidad'] . '</td>';
+                    echo '<td>
                                 <a id=bt1 href="?controller=Compra&function=destroy&id=' . $key . '">BORRAR</a>
                                 <a id=bt1  href="?controller=Compra&function=edit&id=' . $key . '">Editar</a>
                                  </td>';
-                        echo '</tr>';
-                    }
-                    //ENLACE BORRAR ME ACTIVA LA FUNCION DESTROY. AÑADO EL ID COMO UNA VARIABLE
-                    //ENLACE EDITAR ME CONDUCE A LA VISTA EDIT CON LOS DATOS PINTADOS EN EL FORM
-
+                    echo '</tr>';
+                }
+                //ENLACE BORRAR ME ACTIVA LA FUNCION DESTROY. AÑADO EL ID COMO UNA VARIABLE
+                //ENLACE EDITAR ME CONDUCE A LA VISTA EDIT CON LOS DATOS PINTADOS EN EL FORM
+                
                 ?>
             </tbody>
 

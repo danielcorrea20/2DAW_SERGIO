@@ -87,6 +87,7 @@ class CompraController implements Controller
         $compras = $GLOBALS['compras'];
         $auxList = [];
         $esta = false;
+        //COMPRUEBO QUE ESTOY INTRODUCIENDO DATOS EN EL FORMULARIO DE CREAR
         if (isset($_POST)) {
             $compra = array(
                 'cliente_dni' => $_POST['cliente_dni'],
@@ -102,7 +103,7 @@ class CompraController implements Controller
                 //SI EN LA LISTA COMPRA EXISTE UN CLIENTE CON EL MISMO JUEGO, EN VEZ DE AÑADIR UNA FILA MÁS AUMENTO EN +1 EL VALOR DE CANTIDAD
                 foreach ($compras as $k => $item) {
                     $auxCompra = $item;
-                    //SI EL LOS DNI COINCIDEN Y LOS ID DEL JUEGO TAMBIEN ES QUE EL CLIENTE A COMPRADO UN JUEGO QUE YA TENIA.
+                    //SI LOS DNI COINCIDEN Y LOS ID DEL JUEGO TAMBIEN ES QUE EL CLIENTE A COMPRADO UN JUEGO VARIAS VECES
                     if ($item['cliente_dni'] == $compra['cliente_dni'] && $item['juego_id'] == $compra['juego_id']) {
                         $suma = $item['cantidad'] + 1;
                         $auxCompra['cantidad'] = $suma;
