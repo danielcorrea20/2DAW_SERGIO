@@ -106,7 +106,6 @@ class CompraController implements Controller
                     if ($item['cliente_dni'] == $compra['cliente_dni'] && $item['juego_id'] == $compra['juego_id']) {
                         $suma = $item['cantidad'] + 1;
                         $auxCompra['cantidad'] = $suma;
-
                         $esta = true;
                     }
                     //AÑADO LA FILA CON LA CANTIDAD CORREGIDA A LA LISTA AUXILIAR
@@ -125,7 +124,8 @@ class CompraController implements Controller
             echo ('Falta algun dato');
 
         }
-        //NO ME ACTUALIZA LA TABLA PORQUE REGRESO AL INDEX Y ESTE TIEMPO LA ANTIGUA VARIABLE AUXILIAR
+        //NO ME ACTUALIZA LA TABLA PORQUE REGRESO AL INDEX Y ESTE TIEMPO LA 
+        //ANTIGUA VARIABLE AUXILIAR
         CompraController::index();
     }
 
@@ -164,7 +164,7 @@ class CompraController implements Controller
             }
         }
         //LLAMO A LA FUNCION INDEX PARA REGRESAR AL INDEX USO :: PORQUE ES UNA FUNCION ESTATICA
-        CompraController::index();
+       CompraController::index();
     }
 
 

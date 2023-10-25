@@ -28,6 +28,7 @@
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Fecha</th>
+                    <th>Beneficio</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -43,6 +44,7 @@
                         echo '<td>' . $tipo['precio'] . '</td>';
                         echo '<td>' . $tipo['cantidad'] . '</td>';
                         echo '<td>' . $tipo['fecha'] . '</td>';
+                        echo '<td>' . $tipo['precio']*$tipo['cantidad'] . '</td>';
                         echo '<td>
                                 <a id=bt1 href="?controller=Compra&function=destroy&id=' . $key . '">BORRAR</a>
                                 <a id=bt1  href="?controller=Compra&function=edit&id=' . $key . '">Editar</a>

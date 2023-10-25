@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <h1>Juegos3</h1>
+        <h1>Juegos</h1>
     </header>
     <main>
         <div id=btJuegos>
