@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <h1>Compras</h1>
+        <h1>Compras1</h1>
     </header>
     <main>
         <div id=btJuegos>

@@ -11,7 +11,7 @@ class CompraController implements Controller
         if (isset($GLOBALS['compras'])) {
             //CREO UNA VARIABLE AUXILIAR PARA CREAR UNA LISTA NUEVA
             $auxList = [];
-
+            
             //tengo que recoger los id
             $juegos = $GLOBALS['juegos'];
             $clientes = $GLOBALS['clientes'];
@@ -38,7 +38,7 @@ class CompraController implements Controller
                 //FINALMENTE INCORPORO LA VARIABLE AUXILIAR DE COMPRA A LA LISTA AUXILIAR.
                 array_push($auxList, $auxCompra);
             }
-
+            //var_dump($auxList);
         }
         //REGRESO AL INDEX DE COMPRA
         include 'view/Compra/index.php';
@@ -116,7 +116,7 @@ class CompraController implements Controller
                 if (!$esta) {
                     array_push($auxList, $compra);
                 }
-                var_dump($auxList);
+                //var_dump($auxList);
                 //MENSAJES DE ERROR EN CASO DE QUE NO EXISTA EL JUEGO O EL COMPRADOR
             } else {
                 echo ('No existe el cliente o el juego');
@@ -127,6 +127,7 @@ class CompraController implements Controller
         }
         //NO ME ACTUALIZA LA TABLA PORQUE REGRESO AL INDEX Y ESTE TIEMPO LA 
         //ANTIGUA VARIABLE AUXILIAR
+        var_dump($auxList);
         CompraController::index();
     }
 

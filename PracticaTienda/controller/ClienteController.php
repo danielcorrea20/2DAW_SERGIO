@@ -8,14 +8,32 @@ class ClienteController implements Controller
 
     public static function index()
     {
+        $id = [];
+
         if (isset($GLOBALS['clientes'])) {
             //CLASE PARA CONTROLAR TODAS LAS ACCIONES REFERIDAS A LOS CLIENTES
             $clientes = $GLOBALS['clientes'];
             //SI EXISTE LA ORDEN Y ESTA ES DES, ACTIVARA EL REVERSO. SINO SE MANTENDRA EN ORDEN
             if (isset($_GET['orden'])) {
                 if ($_GET['orden'] == 'des') {
-                    $clientes = array_reverse($GLOBALS['clientes']);
+                    // foreach ($clientes as $i => $cliente) {
+
+                    //     $i++;
+                    //     //var_dump($i);
+                    //     array_push($id, $i);
+                    // }
+                    //$id = array_reverse($id);
+                    //var_dump($id);
+                    foreach ($clientes as $i => $cliente) {
+                        foreach ($id as $j => $ids) {
+                            var_dump($i);
+                            $clientes = array_flip($clientes[$i]);
+                            var_dump($clientes);
+                        }
+                    }
+                    $clientes = array_reverse($clientes);
                 }
+
             }
             //RETORNO A LA VISTA INDEX DE CLIENTE
             include 'view/cliente/index.php';

@@ -10,7 +10,6 @@ class JuegoController implements Controller
     public static function index()
     {
         if (isset($GLOBALS['juegos'])) {
-            $juegoTabla[] = null;
             //MUESTRO LA LISTA DE JUEGOS
             $juegos = $GLOBALS['juegos'];
         }
@@ -26,6 +25,79 @@ class JuegoController implements Controller
                 //RECOJO DE LA URL EL TIPO DEL JUEGO Y LA GUARDO 
                 $_GET['tipo'] => $GLOBALS['juegos'][$_GET['tipo']]
             );
+        }
+        include 'view/Juegos/index.php';
+    }
+
+    public static function filterPrecio()
+    {
+
+        $juegos = $GLOBALS['juegos'];
+
+        //USO LA FUNCION FILTER PARA PODER FILTRAR LOS JUEGOS SEGUN SU PRECOP (<50€ O >50€)
+        if (isset($_GET['precio'])) {
+            $accion = [];
+            $aventura = [];
+            $deporte = [];
+
+            $tipoPrecio = $_GET['precio'];
+
+            if ($tipoPrecio == 'barato') {
+                foreach ($juegos as $key => $value) {
+                    foreach ($value as $k => $v) {
+                        if ($v['precio'] < 50) {
+
+                            switch ($key) {
+                                case 'Accion':
+                                    array_push($accion, $v);
+                                case 'Aventura':
+                                    array_push($aventura, $v);
+                                case 'Deportes':
+                                    array_push($deporte, $v);
+                                default:
+                                    "No existe esa categoría";
+                            }
+
+                        }
+                    }
+                }
+
+                $GLOBALS['juegos'] = array(
+                    'Accion' => $accion,
+                    'Aventura' => $aventura,
+                    'Deportes' => $deporte
+                );
+                $juegos = $GLOBALS['juegos'];
+
+            }
+            if ($tipoPrecio == 'caro') {
+                foreach ($juegos as $key => $value) {
+                    foreach ($value as $k => $v) {
+                        if ($v['precio'] > 50) {
+
+                            switch ($key) {
+                                case 'Accion':
+                                    array_push($accion, $v);
+                                case 'Aventura':
+                                    array_push($aventura, $v);
+                                case 'Deportes':
+                                    array_push($deporte, $v);
+                                default:
+                                    "No existe esa categoría";
+                            }
+
+                        }
+                    }
+                }
+
+                $GLOBALS['juegos'] = array(
+                    'Accion' => $accion,
+                    'Aventura' => $aventura,
+                    'Deportes' => $deporte
+                );
+                $juegos = $GLOBALS['juegos'];
+
+            }
         }
         include 'view/Juegos/index.php';
     }

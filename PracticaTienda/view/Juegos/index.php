@@ -19,6 +19,8 @@
             <a id=btjuegos class="btn" href="?controller=Juego&function=filter&tipo=Aventura">Aventuras</a>
             <a id=btjuegos class="btn" href="?controller=Juego&function=filter&tipo=Deportes">Deportes</a>
             <a id=btjuegos class="btn" href="?controller=Juego&function=index">Todos</a>
+            <a id=btjuegos class="btn" href="?controller=Juego&function=filterPrecio&precio=caro">Más de 50€</a>
+            <a id=btjuegos class="btn" href="?controller=Juego&function=filterPrecio&precio=barato">Menos de 50€</a>
             <a id=atrasCrear class="btn" href="index.php">Atrás</a><br>
             <a id=btcrear class="btn" id=crear href="?controller=Juego&function=Create">Crear Juego</a>
         </div>
@@ -39,7 +41,9 @@
 
                 <?php
                 foreach ($juegos as $key => $tipo) {
+                     
                     foreach ($tipo as $id => $value) {
+                        
                         //RECORRO LOS DOS ARRAYS DE JUEGOS Y PINTO LOS DATOS FINALES EN UNA TABLA
                         echo '<tr>';
                         echo '<td>' . $key . '</td>';
@@ -56,6 +60,8 @@
                     }
                     //ENLACE BORRAR ME ACTIVA LA FUNCION DESTROY. AÑADO EL ID COMO UNA VARIABLE
                     //ENLACE EDITAR ME CONDUCE A LA VISTA EDIT CON LOS DATOS PINTADOS EN EL FORM
+                   
+                 
                 }
                 ?>
             </tbody>
