@@ -9,6 +9,8 @@ class ClienteController implements Controller
     public static function index()
     {
         $id = [];
+        $id2 = [];
+
 
         if (isset($GLOBALS['clientes'])) {
             //CLASE PARA CONTROLAR TODAS LAS ACCIONES REFERIDAS A LOS CLIENTES
@@ -16,22 +18,30 @@ class ClienteController implements Controller
             //SI EXISTE LA ORDEN Y ESTA ES DES, ACTIVARA EL REVERSO. SINO SE MANTENDRA EN ORDEN
             if (isset($_GET['orden'])) {
                 if ($_GET['orden'] == 'des') {
-                    // foreach ($clientes as $i => $cliente) {
-
-                    //     $i++;
-                    //     //var_dump($i);
-                    //     array_push($id, $i);
-                    // }
-                    //$id = array_reverse($id);
-                    //var_dump($id);
                     foreach ($clientes as $i => $cliente) {
-                        foreach ($id as $j => $ids) {
-                            var_dump($i);
-                            $clientes = array_flip($clientes[$i]);
-                            var_dump($clientes);
-                        }
+                        //var_dump($i);
+                        array_push($id, $i);
                     }
-                    $clientes = array_reverse($clientes);
+                    $id = array_reverse($id);
+                   //var_dump($id);
+
+                    foreach ($id as $j => $ids) {
+                        //AQUI ME CAMBIA DE POSICION LOS VALORES DE LAS CLAVES CON ARRAY_FLIP
+                        $id2 = array_flip($id);
+                        //RECORRO EL ARRAY DE CLIENTES Y EL DE ID2 
+                        foreach ($clientes as $i => $cliente) {
+                            foreach ($id2 as $j => $value) {
+                                //var_dump($j);
+                                //var_dump($cliente);
+                                $clientes = array_reverse($clientes);
+                                //ESTA CASI CASI
+                                // $GLOBALS['clientes']=$id2;
+                                // $clientes=$GLOBALS['clientes'];
+                            } 
+                        }  
+                    }
+                    var_dump($id2);
+                    $i++;
                 }
 
             }
