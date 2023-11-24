@@ -77,8 +77,8 @@ class User {
     {
         $query = "INSERT INTO usuario (".implode(",",array_keys($datos)).",rol_id) VALUES
          ('".implode("','",array_values($datos))."',2)";
-        //var_dump($query);
-        //exit();
+        var_dump($query);
+        exit();
         $db = Database::conectar();
         $db->exec($query);
         $db = Database::desconectar();

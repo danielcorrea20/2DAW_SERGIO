@@ -58,6 +58,17 @@ class Database
         $db->exec($query);
 
         $query = "
+                CREATE TABLE IF NOT EXISTS producto(
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nombre TEXT,
+                    descripcion TEXT,
+                    precio INTEGER,
+                    stock INTEGER
+                )
+        ";
+        $db->exec($query);
+
+        $query = "
                 CREATE TABLE IF NOT EXISTS rol(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nombre TEXT
@@ -76,6 +87,22 @@ class Database
                 
                 ";
         $db->exec($query);
+
+
+        $query = "
+                INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Pegaso','Figura del caballero Sheya',140,100);
+
+                INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Cisne','Figura del caballero Yoga',120,50);
+
+                INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Andromeda','Figura del caballero Shum',110,75);
+
+                INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Dragón','Figura del caballero Shiryu',135,130);
+        
+                ";
+        $db->exec($query);
+
+
+
     }
 }
 ?>

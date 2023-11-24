@@ -19,7 +19,7 @@ class authController
     public static function home()
     {
         if(isset($_SESSION['user'])&& $_SESSION['user']['rol_id']=2){
-            include 'view/private/user.php';
+            header('Location:?controller=producto&function=indexUser');
         }else if(!isset($_SESSION['user'])){
             header('Location:?controller=auth&function=log');
         }
@@ -28,7 +28,7 @@ class authController
     public static function admin()
     {
         if(isset($_SESSION['user'])&& $_SESSION['user']['rol_id']=1){
-            include 'view/private/admin.php';
+            header('Location:?controller=producto&function=indexAdmin');
         }else if(!isset($_SESSION['user'])){
             header('Location:?controller=auth&function=log');
         }

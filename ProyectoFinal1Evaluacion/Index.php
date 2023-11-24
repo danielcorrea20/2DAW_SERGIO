@@ -1,13 +1,10 @@
 <?php
-require_once "Controller/carritoController.php";
-require_once "Controller/contenidoController.php";
 require_once "Controller/authController.php";
-require_once "Controller/pedidoController.php";
 require_once "Controller/productoController.php";
 session_start();
 
 $db = Database::conectar();
-Database::iniciarTablas($db);
+//Database::iniciarTablas($db);
 
 if (isset($_GET['controller']) && $_GET['function']) {
     $controlador = $_GET['controller'];

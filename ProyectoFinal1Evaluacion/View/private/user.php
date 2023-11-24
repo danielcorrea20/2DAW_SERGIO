@@ -26,10 +26,41 @@
   </header>
   
   <main>
-    <!-- Contenido de la página -->
-    <H1>HOLA SOY USUARIO</H1>
-    <p>AQUI VIENE UNA TABLA CON LOS PRODUCTOS Y EL CARRITO</p>
-    <p>PIENSA EN EL DISEÑO</p>
+  <h1>Bienvenido usuario, ¿Listo para hacer tu compra?</h1>
+    <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Opciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                foreach ($productos as $key => $value) {
+
+                    //RECORRO LOS DOS ARRAYS DE JUEGOS Y PINTO LOS DATOS FINALES EN UNA TABLA
+                    echo '<tr>';
+                    echo '<td>' . $value['id'] . '</td>';
+                    echo '<td>' . $value['nombre'] . '</td>';
+                    echo '<td>' . $value['descripcion'] . '</td>';
+                    echo '<td>' . $value['precio'] . '</td>';
+                    echo '<td>' . $value['stock'] . '</td>';
+                    echo '<td>
+                    <a id=bt1 href="">Comprar</a>
+                    </td>';
+       
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
+
+        </table>
     
   </main>
 </body>

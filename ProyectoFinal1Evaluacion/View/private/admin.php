@@ -5,20 +5,19 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="asset/CSS/private.css">
+  <link rel="stylesheet" href="asset/css/admin.css">
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="navbar-brand">
-        <a href="#">Logo</a>
-      </div>
+
       <div class="user-profile">
-        <img src="asset/img/fotoPerfil" alt="Foto de perfil" class="profile-pic" id="dropdownMenuLink">
-        <a href="#" class="username" id="dropdownMenuLink"><?php echo $_SESSION['user']['email']?> <i class="fas fa-caret-down"></i></a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Ver perfil</a>
-          <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Ajustes</a>
-          <a class="dropdown-item" href="?controller=auth&function=logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+        <img src="asset/img/fotoPerfil" alt="Foto de perfil" class="logoPerfil" id="dropdownMenuLink">
+        <a href="#" class="nombre" id="dropdownMenuLink"><?php echo $_SESSION['user']['email']?> <i class="fas fa-caret-down"></i></a>
+        <div class="menu" aria-labelledby="dropdownMenuLink">
+          <a class="perfil" href="#"><i class="fas fa-user"></i> Ver perfil</a>
+          <a class="ajustes" href="#"><i class="fas fa-cog"></i> Ajustes</a>
+          <a class="cerrar" href="?controller=auth&function=logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
         </div>
       </div>
     </nav>
@@ -26,9 +25,43 @@
   
   <main>
     <!-- Contenido de la página -->
-    <h1>HOLA SOY ADMIN</h1>
-    <p>AQUI VIENE UNA TABLA CON LOS PRODUCTOS Y LAS OPCIONES PARA HACER UN CRUD</p>
-    <p>PIENSA EN EL DISEÑO ALGO MAS SENCILLO</p>
+    <h1>Hola Administrador. Bienvenido</h1>
+    <table>
+        <a href="?controller=producto&function=create" class="crear">crear</a>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Opciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                foreach ($productos as $key => $value) {
+
+                    //RECORRO LOS DOS ARRAYS DE JUEGOS Y PINTO LOS DATOS FINALES EN UNA TABLA
+                    echo '<tr>';
+                    echo '<td>' . $value['id'] . '</td>';
+                    echo '<td>' . $value['nombre'] . '</td>';
+                    echo '<td>' . $value['descripcion'] . '</td>';
+                    echo '<td>' . $value['precio'] . '</td>';
+                    echo '<td>' . $value['stock'] . '</td>';
+                    echo '<td>
+                    <a id=bt1 href="?controller=producto&function=destroy&id=' . $value['id'] . '">BORRAR</a>
+                    <a id=bt1 href="?controller=producto&function=edit&id=' . $value['id'] . '">Editar</a>
+                    </td>';
+       
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
+
+        </table>
   </main>
 </body>
 </html>
