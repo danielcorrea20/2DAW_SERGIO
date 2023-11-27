@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear User</title>
     <link rel="stylesheet" href="asset/css/admin.css">
+    <link rel="stylesheet" href="asset/css/formulariosadmin.css">
 </head>
 
 <body>
     <a id=atrasCrear1 href="?controller=producto&function=indexAdmin">Atrás</a><br>
     <!--VISTA DEL CREATE DE CLIENTE CON ESTE FORMULARIO RECOJO LOS DATOS DEL FORMULARIO
     USO EL METODO POST Y FUNCION SAVE -->
+    <h1>Modifica el producto con sus nuevos valores</h1>
     <form method="post" action="?controller=producto&function=update&id=<?php echo $result['id'] ?>">
         <label  for="Nombre">Nombre</label>
         <input value="<?php echo $result['nombre'] ?>" type="text" id="Nombre" name="Nombre" /><br />

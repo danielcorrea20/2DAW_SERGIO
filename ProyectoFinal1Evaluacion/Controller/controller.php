@@ -3,7 +3,7 @@
 interface Controller {
 
     # Funcion abstracta index que muestra todos los elementos (tabla)
-    public static function indexAdmin();
+    public static function index();
 
     # Funcion abstracta create que muestra un formulario para agregar un elemento
     public static function create();

@@ -1,0 +1,28 @@
+body {
+    background-image: url(../img/tienda.jpg);
+    background-size: 100%;
+}
+td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid rgb(175, 187, 10);
+    border-collapse: collapse;
+    padding: 0.3em;
+    caption-side: bottom;
+    color: rgb(32, 17, 17);
+    background-color:rgb(232, 236, 180,0.8) ;
+ }
+#bt1:hover{
+    background-color: rgba(29, 31, 155, 0.699);
+    transform: translateY(-2px);
+    color: rgb(237, 252, 24);
+	
+}
+h1{
+    width: 100%;
+    color: rgb(185, 206, 25);
+background-color: rgba(59, 13, 13, 0.699);
+    text-align: center;
+    margin-top: 6%;
+}

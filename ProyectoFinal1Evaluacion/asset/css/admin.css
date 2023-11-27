@@ -2,10 +2,10 @@ body{
    background-color: rgb(4, 126, 126);
 }
 
-
 table {
    width: 100%;
    border: 1px solid  rgb(175, 187, 10);
+   
 }
 
 th,
@@ -17,6 +17,7 @@ td {
    border-collapse: collapse;
    padding: 0.3em;
    caption-side: bottom;
+   color: rgb(175, 187, 10);
 }
 
 

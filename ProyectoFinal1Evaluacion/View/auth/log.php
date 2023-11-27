@@ -20,8 +20,10 @@
                 <label for="password" class="label">Password</label>
             </div>
 
-            <input type="submit" class="submitBtn" value="Log">
-            <!-- <a id=atrasCrear href="index.php">Atrás</a> -->
+            <div style="display:inline">
+                <input type="submit" class="submitBtn" value="Log">
+                <a id=atrasCrear class="submitBtn" href="index.php">Atrás</a>
+            </div>
         </form>
     </div>
 

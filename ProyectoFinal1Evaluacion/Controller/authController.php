@@ -18,22 +18,22 @@ class authController
     }
     public static function home()
     {
-        if(isset($_SESSION['user'])&& $_SESSION['user']['rol_id']=2){
+        if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] = 2) {
             header('Location:?controller=producto&function=indexUser');
-        }else if(!isset($_SESSION['user'])){
+        } else if (!isset($_SESSION['user'])) {
             header('Location:?controller=auth&function=log');
         }
-        
+
     }
     public static function admin()
     {
-        if(isset($_SESSION['user'])&& $_SESSION['user']['rol_id']=1){
+        if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] = 1) {
             header('Location:?controller=producto&function=indexAdmin');
-        }else if(!isset($_SESSION['user'])){
+        } else if (!isset($_SESSION['user'])) {
             header('Location:?controller=auth&function=log');
         }
     }
-    
+
     public static function doLogin()
     {
         $email = $_POST['email'];
@@ -88,8 +88,9 @@ class authController
         }
 
     }
-    public static function logout(){
-        if(session_id()){
+    public static function logout()
+    {
+        if (session_id()) {
             session_destroy();
         }
         header('Location:?controller=auth&function=log');

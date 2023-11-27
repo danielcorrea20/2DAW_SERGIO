@@ -20,16 +20,17 @@
                 <label for="password" class="label">Password</label>
             </div>
 
-            
+
             <div class="inputContainer">
                 <input type="text" class="input" placeholder="a" name="contrasena-verify">
                 <label for="contrasena-verify" class="label">Confirmar Password</label>
             </div>
-
+            <br>
             <input type="submit" class="submitBtn" value="Guarda/Log">
-            <!-- <a id=atrasCrear href="index.php">Atrás</a> -->
-        </form>
+            <a id=atrasCrear href="index.php">Atrás</a>
         
+        </form>
+
     </div>
 
 </body>

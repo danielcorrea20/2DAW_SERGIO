@@ -1,7 +1,11 @@
 <?php
 require_once "Controller/authController.php";
 require_once "Controller/productoController.php";
+require_once "Controller/compraController.php";
+require_once "Controller/userController.php";
 session_start();
+
+
 
 $db = Database::conectar();
 //Database::iniciarTablas($db);

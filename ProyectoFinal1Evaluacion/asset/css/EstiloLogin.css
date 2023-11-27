@@ -72,7 +72,6 @@ form{
   }
 
   .submitBtn {
-    display: block;
     margin-left: auto;
     padding: 15px 30px;
     border: none;
@@ -109,6 +108,7 @@ form{
   }
   #atrasCrear {
     background-color: rgba(29, 31, 155);
+   
     padding: 15px 30px;
     border-radius: 6px;
     color: white;
