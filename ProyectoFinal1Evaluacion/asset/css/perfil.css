@@ -44,11 +44,11 @@ button:hover{
     transform: translateY(-2px);
 }
 
-#atrasCrear1:hover{
+.boton:hover{
     background-color: rgba(29, 31, 155, 0.699);
     transform: translateY(-2px);
 }
-.boton:hover{
+#bt1:hover{
     background-color: rgba(29, 31, 155, 0.699);
     transform: translateY(-2px);
 	
@@ -60,13 +60,25 @@ h1{
     margin-top: 6%;
 }
 a{
-	background-color: rgb(182, 205, 50);;
+    text-decoration: none;
+	width:25%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:rgb(4, 126, 126);
+	background-color:#000;
+    text-align: center;
+    
 }
-.boton {
-	text-decoration: none;
-	color: rgb(2, 41, 41);
-	background-color: rgb(187, 10, 10);
-	padding: 2px;
-	margin: 2px;
-  }
-  
+.botones{
+    display: flex;
+    gap: 20%;
+}
+#atrasCrear1{
+    width:40%;
+}
+#password{
+	margin-left: 28%;
+}

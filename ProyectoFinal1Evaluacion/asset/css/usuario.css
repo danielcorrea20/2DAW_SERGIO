@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(4, 126, 126);
+ }
+ 
+ table {
+    width: 100%;
+    border: 1px solid  rgb(175, 187, 10);
+    
+ }
+ 
+ th,
+ td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid rgb(175, 187, 10);
+    border-collapse: collapse;
+    padding: 0.3em;
+    caption-side: bottom;
+    color: rgb(175, 187, 10);
+ }
+ 
+ 
+ th {
+    background: rgb(2, 41, 41);
+    color: rgb(175, 187, 10);
+ }
+ 
+ h1 {
+    color: rgb(2, 41, 41);
+ }
+ .bt1 {
+    text-decoration: none;
+    color: rgb(2, 41, 41);
+    background-color: rgb(175, 187, 10);
+    padding: 2px;
+    margin: 2px;
+  }
+  

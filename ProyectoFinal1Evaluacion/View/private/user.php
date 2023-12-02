@@ -25,7 +25,7 @@
           <?php echo $_SESSION['user']['email'] ?> <i class="fas fa-caret-down"></i>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a id=bt1 class="perfil" href="#"><i class="fas fa-user"></i> Ver perfil</a>
+          <a id=bt1 class="perfil" href="?controller=perfil&function=edit"><i class="fas fa-user"></i> Ver perfil</a>
           <a id=bt1 class="ajustes" href="#"><i class="fas fa-cog"></i> Ajustes</a>
           <a id="bt1" class="dropdown-item" href="?controller=compra&function=index"><i class="fa-brands fa-shopify"></i> Carrito</a>
           <a id="bt1" class="dropdown-item" href="?controller=auth&function=logout"><i class="fas fa-sign-out-alt"></i>

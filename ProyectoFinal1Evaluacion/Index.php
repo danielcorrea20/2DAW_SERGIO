@@ -3,6 +3,9 @@ require_once "Controller/authController.php";
 require_once "Controller/productoController.php";
 require_once "Controller/compraController.php";
 require_once "Controller/userController.php";
+require_once "Controller/perfilController.php";
+//HE INTENTADO USAR AUTOLOAD PERO ME DA UN ERROR, ME REQUIERE CONTROLLER/DATABASE
+require_once "autoload.php";
 session_start();
 
 

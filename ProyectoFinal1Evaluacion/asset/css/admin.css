@@ -42,20 +42,19 @@ a {
    display: flex;
    flex-wrap: wrap; 
 }
-#bt1 {
-   text-decoration: none;
-   color: rgb(2, 41, 41);
-   background-color: rgb(175, 187, 10);
-   padding: 2px;
-   margin: 2px;
-}
+
 
 .logoPerfil{
    width: 2%;
    margin-left: 80%;
 }
-.crear{
+#crear{
    width: 18px;
+   text-decoration: none;
+   color: rgb(2, 41, 41);
+   background-color: rgb(175, 187, 10);
+   padding: 2px;
+   margin: 2px;
 }
 
 form{
@@ -122,7 +121,7 @@ form{
    transition: 0.5s;
    z-index: 0;
  }
-
+/*
  .submitBtn {
    display: block;
    margin-left: auto;
@@ -135,6 +134,7 @@ form{
    font-size: 16px;
   
  }
+ */
  
  .submitBtn:hover {
    background-color: rgb(182, 205, 50);
@@ -171,3 +171,11 @@ form{
    background-color: rgb(182, 205, 50);
    transform: translateY(-2px);
  }
+ #crear{
+  width: 18px;
+  text-decoration: none;
+  color: rgb(2, 41, 41);
+  background-color: rgb(175, 187, 10);
+  padding: 2px;
+  margin: 2px;
+}

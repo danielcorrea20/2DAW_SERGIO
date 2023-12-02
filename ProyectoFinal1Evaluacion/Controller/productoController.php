@@ -2,14 +2,13 @@
 require_once 'Controller.php';
 require_once 'Modelo/Producto.php';
 
-class productoController implements Controller
+class productoController 
 {   # Funcion abstracta index que muestra todos los elementos (tabla)
 
    public static function index()
    {
       //code
    }
-
    public static function indexAdmin()
    {
       $producto = new Producto();
@@ -18,7 +17,6 @@ class productoController implements Controller
       require 'view/private/admin.php';
 
    }
-
 
    public static function indexUser()
    {
@@ -37,35 +35,35 @@ class productoController implements Controller
    # Funcion abstracta save que inserta en la BD los elementos recogidos del formulario
    public static function save()
    {
+      if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
+         $datos = [];
+         if (isset($_POST['Nombre'])) {
+            $datos['nombre'] = $_POST['Nombre'];
 
-      //comprobar y recoger datos
-      //insertarlos en un array
-      //enviar el array a modelo para que lo inserte en bd
-      $datos = [];
-      if (isset($_POST['Nombre'])) {
-         $datos['nombre'] = $_POST['Nombre'];
+         }
+         if (isset($_POST['descripcion'])) {
+            $datos['descripcion'] = $_POST['descripcion'];
 
+         }
+         if (isset($_POST['precio'])) {
+            $datos['precio'] = $_POST['precio'];
+
+         }
+         if (isset($_POST['stock'])) {
+            $datos['stock'] = $_POST['stock'];
+
+         }
+         $producto = new Producto();
+         $productos = $producto->findAll()->fetchAll();
+         $producto->store($datos);
+         header('Location: ?controller=producto&function=indexAdmin');
+      } else if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
+         //alarm no tienes permisos
+         header('Location: ?controller=user&function=index');
+      } else {
+         //alarm no tienes permisos
+         header('Location: ?controller=auth&function=doLogin');
       }
-      if (isset($_POST['descripcion'])) {
-         $datos['descripcion'] = $_POST['descripcion'];
-
-      }
-      if (isset($_POST['precio'])) {
-         $datos['precio'] = $_POST['precio'];
-
-      }
-      if (isset($_POST['stock'])) {
-         $datos['stock'] = $_POST['stock'];
-
-      }
-      // var_dump($datos);
-      //exit();
-
-      $producto = new Producto();
-      $productos = $producto->findAll()->fetchAll();
-      $producto->store($datos);
-
-      header('Location: ?controller=producto&function=indexAdmin');
 
    }
 
@@ -83,25 +81,39 @@ class productoController implements Controller
    # Funcion abstracta update que recibe un $id de un elemento y actualiza su contenido
    public static function update($id)
    {
-      $producto = new Producto();
-      $producto->updateById($id);
-      $productos = $producto->findAll()->fetchAll();
+      if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
+         $producto = new Producto();
+         $producto->updateById($id);
+         $productos = $producto->findAll()->fetchAll();
 
-      header('Location: ?controller=producto&function=indexAdmin');
+         header('Location: ?controller=producto&function=indexAdmin');
+      } else if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
+         //alarm no tienes permisos
+         header('Location: ?controller=user&function=index');
+      } else {
+         //alarm no tienes permisos
+         header('Location: ?controller=auth&function=doLogin');
+      }
+
    }
 
    # Function abstracta destroy que recibe un $id de un elemento y lo elimina de la BD
-   public static function destroy($id)
+  
+   public static function destroyById($id)
    {
-      /**
-       * 1. Recoger el $id.
-       * 2. Crear objeto User.
-       * 3. Invocar la funcion destroyById llevandole el $id.
-       * 4. Cambiar cabecera para ir al index
-       */
-      $producto = new Producto();
-      $producto->destroyById($id);
-      header('Location: ?controller=producto&function=indexAdmin');
+     
+      if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
+         $producto = new Producto();
+         $producto->destroyById($id);
+         header('Location: ?controller=producto&function=indexAdmin');
+      } else if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
+         //alarm no tienes permisos
+         header('Location: ?controller=user&function=index');
+      } else {
+         //alarm no tienes permisos
+         header('Location: ?controller=auth&function=doLogin');
+      }
+
    }
 
 }
