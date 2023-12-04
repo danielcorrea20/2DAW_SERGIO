@@ -74,7 +74,7 @@ class userController implements controller
     {
         if (isset($_SESSION['user']) && $_SESSION['user']['rol_id'] == 1) {
             $user = new User();
-            $user->updateById($id);
+            $user->update($id);
             $users = $user->findAll()->fetchAll();
             header('Location: ?controller=user&function=index');
 

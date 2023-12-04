@@ -102,5 +102,18 @@ class Compra
 
     }
 
+    public function destroyByUser($id): void
+    {
+        //conectar BD
+        $db = Database::conectar();
+        //RELAIZA LA QUERY
+        $query = "DELETE FROM compras WHERE user_id = $id";
+        $db->exec($query);
+        //DESCONECTAR DB
+     
+        $db = Database::desconectar();
+
+    }
+
 }
 ?>

@@ -31,7 +31,7 @@ class PerfilController
                 $user = new User();
                 $user->setPassword(password_hash($_POST['new-password'], PASSWORD_BCRYPT, ['cont' => 4]));
                 $user->updateById($_SESSION['user']['id']);
-    
+
             } else {
                 $_SESSION['mensaje'] = 'Contraseña nueva NO coincide';
             }
@@ -53,7 +53,7 @@ class PerfilController
                 $user = new User();
                 $user->setPassword(password_hash($_POST['new-password'], PASSWORD_BCRYPT, ['cont' => 4]));
                 $user->updateById($_SESSION['user']['id']);
-    
+
             } else {
                 $_SESSION['mensaje'] = 'Contraseña nueva NO coincide';
             }
@@ -68,16 +68,24 @@ class PerfilController
     {
 
         if (isset($_SESSION['user'])) {
+            $compra = new Compra();
+            $user = new User();
+            $compras = $compra->findbyUserId()->fetchAll();
+            foreach ($compras as $key => $value) {
+                //var_dump($compras[$key]['user_id']);
+                //exit();
+                $idUserCompra = $compras[$key]['user_id'];
+            }
+
             $id = $_SESSION['user']['id'];
+            $idCompra = $compras['user_id'];
             unset($_SESSION['user']);
 
-            $user = new User();
-            $compra = new Compra();
             $user->setId($id);
             $user->destroyById($id);
-            $compra->destroyById($id);
+            $compra->destroyByUser($idUserCompra);
             session_destroy();
-            $_SESSION['mensaje'] = 'Cuenta eliminada correctamente';
+
         }
         header('Location: ?controller=auth&function=log');
     }

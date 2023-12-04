@@ -46,12 +46,7 @@ class User {
 
     public function findAll(): PDOStatement
     {
-        /**
-         * 1. Me conecto a la base de datos.
-         * 2. Realizo la query
-         * 3. Me desconecto de la base de datos.
-         * 4. Devuelvo la query
-         */
+
         $db = Database::conectar();
         $query = "SELECT * FROM usuario";
         $result = $db->query($query);
@@ -61,12 +56,7 @@ class User {
 
     public function findEmail($email)
     {
-        /**
-         * 1. Me conecto a la base de datos.
-         * 2. Realizo la query
-         * 3. Me desconecto de la base de datos.
-         * 4. Devuelvo la query
-         */
+
         $db = Database::conectar();
         $query = "SELECT * FROM usuario WHERE email = '$email'";
         $user = $db->query($query);
@@ -86,8 +76,7 @@ class User {
     {
         $query = "INSERT INTO usuario (".implode(",",array_keys($datos)).",rol_id) VALUES
          ('".implode("','",array_values($datos))."',2)";
-        //var_dump($query);
-        //exit();
+
         $db = Database::conectar();
         $db->exec($query);
         $db = Database::desconectar();
@@ -97,31 +86,38 @@ class User {
 
         $query = "INSERT INTO usuario (".implode(",",array_keys($datos)).") VALUES
          ('".implode("','",array_values($datos))."')";
-        //var_dump($query);
-        //exit();
+
         $db = Database::conectar();
         $db->exec($query);
         $db = Database::desconectar();
     }
+    public function update($id)
+    {
+        if (isset($_POST['email'])) {
+            $email= $_POST['email'];
+   
+         }
+         if (isset($_POST['rol_id'])) {
+            $rol = $_POST['rol_id'];
+   
+        $db = Database::conectar();
+        $query = "UPDATE usuario SET email= '$email', rol_id = '$rol'WHERE id= $id";
+        $db->query($query);
+        $db = Database::desconectar();
+
+    }
+}
+
+
     public function updateById($id)
     {
-        /**
-         * 1. Conectar a la base de datos.
-         * 2. Construir la query para actualizar datos
-         * 3. Ejecutar la query
-         * 4. Desconectar de la base de datos
-         */
+
         $query ="UPDATE usuario SET";
-        /**
-         * Comprobamos valores getXX de id, email, password, rol_id
-         * Si hay contenido, concateno.
-         * Si no hay contenido, no hago nada
-         */
+
        
-        # $datos contiene un array con todos los datos existentes para actualizar
+  
         $datos = array(); 
-        // $datos['email'] = 'hola';
-        // $datos['rol_id'] = 2;
+
         if($this->getEmail() != null){
             $datos['email'] = $this->getEmail();
         }
@@ -132,24 +128,22 @@ class User {
             $datos['rol_id'] = $this->getRol();
         }
         
-        # Recorrer los elementos de $datos
+
         $keys = array_keys($datos);
-        // var_dump($datos);
-        // var_dump($keys);
+
         
         foreach ($datos as $key => $value) {
-            # estoy en el ultimo caso. NO PONGO COMA AL FINAL
+           
             if($key === end($keys)){
                 $query = $query . " $key = '$value'";
                 var_dump('ULTIMO CASO: '. $query);
             }else{
-                # Estoy en un caso normal. PONGO COMA AL FINAL
+               
                 $query = $query . " $key = '$value', ";
                 var_dump('CASO NORMAL: '. $query);
             }
         }
-        // var_dump('CASO FINAL: '. $query);
-        // exit();
+
         $query = $query." WHERE id = $id ";
         
         $db = Database::conectar();
@@ -169,10 +163,10 @@ class User {
     {
         //conectar BD
         $db = Database::conectar();
-        //RELAIZA LA QUERY
+
         $query = "DELETE FROM usuario WHERE id = $id";
         $db->exec($query);
-        //DESCONECTAR DB
+ 
         $db = Database::desconectar();
 
     }

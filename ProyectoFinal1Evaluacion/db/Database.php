@@ -41,11 +41,11 @@ class Database
     public static function iniciarTablas($db): void
     {
         $password = password_hash('1234', PASSWORD_BCRYPT, ['cont' => 4]);
-        $delete = "
-                DROP TABLE IF EXISTS usuario;
-            ";
+        //$delete = "
+        //      DROP TABLE IF EXISTS usuario;
+        // ";
 
-        $db->exec($delete);
+        //$db->exec($delete);
 
         $query = "
                 CREATE TABLE IF NOT EXISTS usuario(
@@ -87,24 +87,26 @@ class Database
 ";
         $db->exec($query);
 
-        // $query = "
-        // INSERT INTO rol (nombre) VALUES ('admin'),('usuario');
-        // ";
+
+
+        //$query = "
+        //INSERT INTO rol (nombre) VALUES ('admin'),('usuario');
+        //";
         //$db->exec($query);
 
-        $query = "
-                INSERT INTO usuario (email,password,rol_id) VALUES ('daniel@gmail.com','$password',1);
-                INSERT INTO usuario (email,password,rol_id) VALUES ('jaime@gmail.com','$password',2);
-                INSERT INTO usuario (email,password,rol_id) VALUES ('luis@gmail.com','$password',2);
-                INSERT INTO usuario (email,password,rol_id) VALUES ('antonio@gmail.com','$password',2);
-                ";
-        $db->exec($query);
+        //$query = "
+        //INSERT INTO usuario (email,password,rol_id) VALUES ('daniel@gmail.com','$password',1);
+        //INSERT INTO usuario (email,password,rol_id) VALUES ('jaime@gmail.com','$password',2);
+        // INSERT INTO usuario (email,password,rol_id) VALUES ('luis@gmail.com','$password',2);
+        //      INSERT INTO usuario (email,password,rol_id) VALUES ('antonio@gmail.com','$password',2);
+        //    ";
+        //$db->exec($query);
 
 
         //$query = "
         //INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Pegaso','Figura del caballero Sheya',140,100);
 
-        // INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Cisne','Figura del caballero Yoga',120,50);
+        //INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Cisne','Figura del caballero Yoga',120,50);
 
         //INSERT INTO producto (nombre,descripcion,precio,stock) VALUES ('Andromeda','Figura del caballero Shum',110,75);
 

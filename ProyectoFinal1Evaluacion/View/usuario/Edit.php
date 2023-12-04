@@ -12,8 +12,8 @@
 <body>
     <a id=atrasCrear1 href="?controller=user&function=index">Atrás</a><br>
 
-    <h1>Añade un nuevo usuario a la web</h1>
-    <form method="post" action="?controller=user&function=save">
+    <h1>Edta el usuario.</h1>
+    <form method="post" action="?controller=user&function=update&id=<?php echo $result['id'] ?>">
         <label for="Email">Email</label>
         <input value="<?php echo $result['email'] ?>" type="text" id="email" name="email" /><br />
 
