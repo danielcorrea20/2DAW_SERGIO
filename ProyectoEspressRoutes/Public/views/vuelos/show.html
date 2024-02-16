@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=+, initial-scale=1.0">
+    <title id="numeroEnTitle"></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 id="numeroEnH1"></h1>
+    <main class="flex-container">
+        <div id="main" class="row">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title" id="numero"></h1>
+                            <h2 class="card-title" id="aerolinea"></h2>
+                            <p class="card-text" id="origen"></p>
+                            <p class="card-text" id="destino"></p>
+                            <p class="card-text"><small class="text-body-secondary" id="salida"></small></p>
+                            <p class="card-text"><small class="text-body-secondary" id="llegada"></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/vuelos/index" class="btn btn-secondary">Atras</a>
+        </div>
+    </main>
+</body>
+
+<script>
+    //Recojo el ID directamente de la URL
+    let path = window.location.pathname.split("/");
+    let id = path[path.length - 1];
+    //Gracias a fetch recojo los datos expecificos de cada vuelo, usando la dirección `/vuelo/${id}`
+         fetch(`/vuelos/get/${id}`)
+        .then((response) => response.json())
+        .then((vuelo) => {
+            //Coloco el nombre del vuelo en el titulo de la vista HE COMPROBADO CON QUE AUNQUE SEAN IGUAL QUE numeroEnH1 DEBO CREAR DOS
+            let numeroEnTitle = document.getElementById('numeroEnTitle');
+            numeroEnTitle.textContent = `Estas en el vuelo: ${vuelo[0].numero_vuelo}`;
+            //Coloco el nombre del vuelo en el h1 fuera de la carta
+            let numeroEnH1 = document.getElementById('numeroEnH1');
+            numeroEnH1.textContent = `Estas en el vuelo: ${vuelo[0].numero_vuelo}`;
+           //Identifico la variable numero con ele elmento de la línea 21 que tienen el ID numero
+            let numero = document.getElementById('numero');
+            //Relleno la variable con el dato de numero de vuelo del objeto vuelo que se situa en la posición 0 del json(solo tendrá un objeto vuelo)
+            numero.textContent = `${vuelo[0].numero_vuelo}`;
+            let aerolinea = document.getElementById('aerolinea');
+            aerolinea.textContent = `${vuelo[0].aerolinea}`;
+            let origen = document.getElementById('origen');
+            origen.textContent = `Origen: ${vuelo[0].origen}`;
+            let destino = document.getElementById('destino');
+            destino.textContent = `destino: ${vuelo[0].destino}`;
+            let salida = document.getElementById('salida');
+            salida.textContent = `salida: fecha: ${vuelo[0].fecha_salida}`;
+            let llegada = document.getElementById('llegada');
+            llegada.textContent = `llegada: fecha: ${vuelo[0].fecha_llegada}`;
+        });
+
+
+</script>
+
+</html>
